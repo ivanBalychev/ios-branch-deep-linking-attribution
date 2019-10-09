@@ -5,14 +5,14 @@ stages:
 unitTest:
   stage: unit
   tags:
-  - test
+  - mac_mini,test
   script:
   - cd Branch-TestBed && pod install --verbose
   - cd .. &&  xcodebuild test -workspace ./Branch-TestBed/Branch-TestBed.xcworkspace -scheme Branch-SDK-Unhosted-Tests -destination 'platform=iOS Simulator,name=iPhone X,OS=12.2'
 integrationTest:
   stage: integration
   tags:
-  - test
+  - mac_mini,test
   script:
   - cd Branch-TestBed && pod install --verbose
   - cd .. && xcodebuild test -workspace ./Branch-TestBed/Branch-TestBed.xcworkspace -scheme Branch-SDK-Tests -destination 'platform=iOS Simulator,name=iPhone X,OS=12.2'
